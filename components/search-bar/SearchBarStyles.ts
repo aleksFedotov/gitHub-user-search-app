@@ -8,10 +8,11 @@ export const SearchWrapper = styled.div`
   padding: 1rem;
   display: flex;
   align-items: center;
-
   gap: 2rem;
+  margin-bottom: 2.2rem;
 
   svg {
+    margin-left: 2.2rem;
     width: 2.4rem;
     height: 2.4rem;
   }
