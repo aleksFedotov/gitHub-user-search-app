@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 
+import { media } from '../../styles/GloabalStyles';
+
 interface PropsType {
-  isAvailable: boolean;
+  isNotAvailable: boolean | null | string;
 }
 
 export const ContnetWrapper = styled.div`
@@ -15,6 +17,14 @@ export const ContnetWrapper = styled.div`
   grid-template-areas: 'Avatar ContentHeader' 'Avatar ContentMain';
   color: ${({ theme }) => theme.bodyPrimary};
   gap: 2rem;
+
+  ${media.tablet} {
+    grid-template-areas: 'Avatar ContentHeader' 'ContentMain ContentMain';
+  }
+
+  ${media.phone} {
+    padding: 3.2rem 2.4rem;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -23,18 +33,29 @@ export const Avatar = styled.img`
   border-radius: 50%;
   grid-area: Avatar;
   margin-right: 1.7rem;
+
+  ${media.phone} {
+    width: 7rem;
+    height: 7rem;
+    margin-right: 0;
+  }
 `;
 
 export const ContentHeader = styled.div`
   display: flex;
   justify-content: space-between;
   grid-area: ContentHeader;
+
+  ${media.tablet} {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
 `;
 
 export const UserName = styled.div`
   h2 {
     font-size: var(--font-size-heading-l);
-
     line-height: var(--line-height-header-l);
     font-weight: 700;
   }
@@ -45,12 +66,26 @@ export const UserName = styled.div`
     color: var(--color-blue);
     font-weight: 500;
   }
+
+  ${media.phone} {
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 export const ContentText = styled.p`
   color: ${({ theme }) => theme.bodySecondary};
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
+
+  ${media.phone} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const ContentMain = styled.div`
@@ -68,6 +103,10 @@ export const StatsWrapper = styled.div`
   padding: 1.5rem 3.3rem;
   margin-top: 3.2rem;
   margin-bottom: 3.8rem;
+
+  ${media.phone} {
+    padding: 1.5rem 2.8rem;
+  }
 `;
 
 export const Stat = styled.div`
@@ -83,23 +122,37 @@ export const Stat = styled.div`
     line-height: var(--line-height-header-m);
     color: ${({ theme }) => theme.heading};
   }
+
+  ${media.phone} {
+    text-align: center;
+
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 export const ContactWrapper = styled.div`
   display: flex;
   list-style: none;
   justify-content: space-between;
+
+  ${media.phone} {
+    flex-direction: column;
+  }
 `;
 
 export const Conctact = styled.div<PropsType>`
   display: flex;
   gap: 1.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
   color: ${({ theme }) => theme.bodyPrimary};
-
-  p {
-    font-size: var(--font-size-body);
-  }
+  font-size: var(--font-size-body);
 
   svg {
     width: 2rem;
@@ -110,11 +163,17 @@ export const Conctact = styled.div<PropsType>`
 
   a {
     color: inherit;
+    font-size: inherit;
   }
 
-  ${({ isAvailable }) =>
-    isAvailable &&
+  ${({ isNotAvailable }) =>
+    isNotAvailable &&
     css`
       opacity: 0.5;
     `}
+
+  ${media.phone} {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
 `;

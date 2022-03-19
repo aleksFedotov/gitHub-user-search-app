@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
-import { GlobalStyles } from '../styles/GloabalStyles';
 import './app.css';
+import { GlobalStyles } from '../styles/GloabalStyles';
+
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../styles/theme/theme';
+
+import { Provider } from 'react-redux';
+import { store } from '../store';
+
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -32,7 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <Component {...pageProps} changeTheme={changeTheme} theme={theme} />
+        <Provider store={store}>
+          <Component {...pageProps} changeTheme={changeTheme} theme={theme} />
+        </Provider>
       </ThemeProvider>
     </>
   );

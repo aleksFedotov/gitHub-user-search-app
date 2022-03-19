@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const SearchWrapper = styled.div`
+import { media } from '../../styles/GloabalStyles';
+
+export const SearchWrapper = styled.label`
+  cursor: pointer;
+  position: relative;
   width: 100%;
   border-radius: 1.5rem;
   box-shadow: 0 1.6rem 3rem -1rem rgba(70, 88, 109, 0.2);
@@ -15,6 +19,16 @@ export const SearchWrapper = styled.div`
     margin-left: 2.2rem;
     width: 2.4rem;
     height: 2.4rem;
+  }
+
+  ${media.phone} {
+    gap: 0rem;
+    svg {
+      margin-left: 0.6rem;
+      margin-right: 0.8rem;
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `;
 
@@ -37,6 +51,10 @@ export const SearchBtn = styled.button`
   &:active {
     transform: scale(0.98);
   }
+
+  ${media.phone} {
+    max-width: 8.4rem;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -54,5 +72,30 @@ export const SearchInput = styled.input`
 
   &::placeholder {
     color: inherit;
+  }
+
+  ${media.phone} {
+    font-size: 1.3rem;
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  position: absolute;
+  right: 14rem;
+  color: #f74646;
+  font-size: var(--font-size-body);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  width: fit-content;
+
+  ${media.tablet} {
+    background-color: ${({ theme }) => theme.bg};
+    box-shadow: 0 1.6rem 3rem -1rem rgba(70, 88, 109, 0.2);
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -11rem;
+  }
+  ${media.phone} {
+    font-size: 1.3rem;
   }
 `;

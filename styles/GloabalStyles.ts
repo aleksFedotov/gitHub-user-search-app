@@ -1,6 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
+const customMediaQuery = (maxWidth: number) =>
+  `@media (max-width: ${maxWidth}px)`;
+
+export const media = {
+  tablet: customMediaQuery(800),
+  phone: customMediaQuery(525),
+};
+
 export const GlobalStyles = createGlobalStyle`
+
+
 
 
 :root {
@@ -43,7 +53,7 @@ body {
   font-family: 'Space Mono', monospace;
   min-height: 100vh;
   color: ${({ theme }) => theme.bodyPrimary};;
-  padding: 2.4rem;
+ 
 }
 a {
   
@@ -59,6 +69,7 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 2.4rem;
 }
 
 section {
@@ -66,6 +77,10 @@ section {
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  ${media.tablet} {
+    max-width: 57.3rem;
+  }
 }
 
 `;

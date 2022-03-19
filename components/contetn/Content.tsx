@@ -58,11 +58,11 @@ const Content: React.FC<{ data: GitHubData }> = ({ data }) => {
         </StatsWrapper>
         <ContactWrapper>
           <div>
-            <Conctact isAvailable={data.location === null}>
+            <Conctact isNotAvailable={!data.location}>
               <LocationIcon />
               <p>{data.location ? data.location : 'Not Available'}</p>
             </Conctact>
-            <Conctact isAvailable={data.blog === null || !data.blog}>
+            <Conctact isNotAvailable={!data.blog}>
               <WebsiteIcon />
               {data.blog ? (
                 <a href={data.blog}>{data.blog}</a>
@@ -72,7 +72,7 @@ const Content: React.FC<{ data: GitHubData }> = ({ data }) => {
             </Conctact>
           </div>
           <div>
-            <Conctact isAvailable={data.twitter_username === null}>
+            <Conctact isNotAvailable={!data.twitter_username}>
               <TwitterIcon />
               <p>
                 {data.twitter_username
@@ -80,7 +80,7 @@ const Content: React.FC<{ data: GitHubData }> = ({ data }) => {
                   : 'Not Available'}
               </p>
             </Conctact>
-            <Conctact isAvailable={data.company === null}>
+            <Conctact isNotAvailable={!data.company}>
               <CompanyIcon />
               <p>{data.company ? data.company : 'Not Available'}</p>
             </Conctact>
