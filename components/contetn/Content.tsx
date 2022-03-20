@@ -50,6 +50,7 @@ const Content: React.FC<{ data: GitHubData }> = ({ data }) => {
           {wordAnimation(bio)}
         </ContentText>
         <Stats
+          isInitial={data.isInitialLoad}
           repos={data.public_repos}
           followers={data.followers}
           following={data.following}

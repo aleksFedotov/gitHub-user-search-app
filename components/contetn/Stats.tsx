@@ -7,20 +7,21 @@ const Stats: React.FC<{
   repos: number;
   followers: number;
   following: number;
-}> = ({ repos, followers, following }) => {
+  isInitial: boolean;
+}> = ({ repos, followers, following, isInitial }) => {
   return (
     <StatsWrapper>
       <Stat>
         <p>Repos</p>
-        <Counter from={0} to={repos} />
+        {isInitial ? <h3>{repos}</h3> : <Counter from={0} to={repos} />}
       </Stat>
       <Stat>
         <p>Followers</p>
-        <Counter from={0} to={followers} />
+        {isInitial ? <h3>{followers}</h3> : <Counter from={0} to={followers} />}
       </Stat>
       <Stat>
         <p>Following</p>
-        <Counter from={0} to={following} />
+        {isInitial ? <h3>{following}</h3> : <Counter from={0} to={following} />}
       </Stat>
     </StatsWrapper>
   );

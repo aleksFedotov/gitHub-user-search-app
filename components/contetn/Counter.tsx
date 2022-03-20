@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { animate } from 'framer-motion';
 
@@ -7,6 +7,7 @@ const Counter: React.FC<{ from: number; to: number }> = ({ from, to }) => {
 
   useEffect(() => {
     const headerRef = ref.current;
+    headerRef!.innerText = from.toString();
 
     const controls = animate(from, to, {
       duration: 1,

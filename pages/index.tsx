@@ -22,6 +22,7 @@ export interface GitHubData {
   company: string | null;
   location: string | null;
   twitter_username: string | null;
+  isInitialLoad: boolean;
 }
 
 const Home: NextPage<{
@@ -92,6 +93,7 @@ export const getStaticProps: GetStaticProps = async () => {
     company,
     location,
     twitter_username,
+    isInitialLoad: true,
   };
 
   return {

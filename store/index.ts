@@ -74,6 +74,7 @@ export const getGitHubData = (query: string) => {
         company,
         location,
         twitter_username,
+        isInitialLoad: false,
       };
 
       dispatch(githubAction.setData(data));
