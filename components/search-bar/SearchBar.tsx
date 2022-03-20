@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, KeyboardEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { getGitHubData } from '../../store';
@@ -28,6 +28,9 @@ const SearchBar = () => {
         placeholder="Search GitHub username…"
         ref={searchRef}
         id="search"
+        onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
+          e.key === 'Enter' && searchHandler()
+        }
       />
 
       <SearchBtn onClick={searchHandler}>Search</SearchBtn>

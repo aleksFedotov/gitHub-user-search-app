@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { media } from '../../styles/GloabalStyles';
+import { motion } from 'framer-motion';
 
 interface PropsType {
   isNotAvailable: boolean | null | string;
@@ -27,7 +28,7 @@ export const ContnetWrapper = styled.div`
   }
 `;
 
-export const Avatar = styled.img`
+export const Avatar = styled(motion.img)`
   width: 11.7rem;
   height: 11.7rem;
   border-radius: 50%;
@@ -78,10 +79,11 @@ export const UserName = styled.div`
   }
 `;
 
-export const ContentText = styled.p`
+export const ContentText = styled(motion.p)`
   color: ${({ theme }) => theme.bodySecondary};
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
+  min-width: fit-content;
 
   ${media.phone} {
     font-size: 1.3rem;

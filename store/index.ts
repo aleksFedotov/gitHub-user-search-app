@@ -45,6 +45,7 @@ export const getGitHubData = (query: string) => {
       }
 
       const {
+        id,
         name,
         login,
         avatar_url,
@@ -60,6 +61,7 @@ export const getGitHubData = (query: string) => {
       }: GitHubData = resData;
 
       const data = {
+        id,
         name,
         login,
         avatar_url,

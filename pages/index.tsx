@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-
 import Header from '../components/header/Header';
 import SearchBar from '../components/search-bar/SearchBar';
 import Content from '../components/contetn/Content';
 
 export interface GitHubData {
+  id: number;
   name: string;
   login: string;
   avatar_url: string | undefined;
@@ -46,6 +46,7 @@ const Home: NextPage<{
         <section>
           <Header theme={theme} onChangeTheme={changeTheme} />
           <SearchBar />
+
           <Content data={data} />
         </section>
       </main>
@@ -71,9 +72,11 @@ export const getStaticProps: GetStaticProps = async () => {
     company,
     location,
     twitter_username,
+    id,
   }: GitHubData = resData;
 
   const initialData = {
+    id,
     name,
     login,
     avatar_url,
