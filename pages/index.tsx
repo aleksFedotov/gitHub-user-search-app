@@ -38,7 +38,7 @@ const Home: NextPage<{
 
         <meta
           name="description"
-          content="GGitHub user search app with next js"
+          content="GitHub user search app with next js"
         />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
