@@ -6,6 +6,7 @@ import { RootState } from '../store';
 import Header from '../components/header/Header';
 import SearchBar from '../components/search-bar/SearchBar';
 import Content from '../components/contetn/Content';
+import { AnimatePresence } from 'framer-motion';
 
 export interface GitHubData {
   id: number;
@@ -47,7 +48,9 @@ const Home: NextPage<{
           <Header theme={theme} onChangeTheme={changeTheme} />
           <SearchBar />
 
-          <Content data={data} />
+          <AnimatePresence initial={false}>
+            <Content data={data} />
+          </AnimatePresence>
         </section>
       </main>
     </>
