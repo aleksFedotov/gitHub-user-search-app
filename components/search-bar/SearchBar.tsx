@@ -21,21 +21,22 @@ const SearchBar = () => {
     dispatch(getGitHubData(query));
   };
   return (
-    <SearchWrapper htmlFor="search">
+    <SearchWrapper
+      onClick={() => {
+        searchRef.current?.focus();
+      }}
+    >
       <SearchIcon />
 
       <SearchInput
         placeholder="Search GitHub username…"
         ref={searchRef}
-        id="search"
         onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
           e.key === 'Enter' && searchHandler()
         }
       />
 
-      <SearchBtn onClick={searchHandler} id="search">
-        Search
-      </SearchBtn>
+      <SearchBtn onClick={searchHandler}>Search</SearchBtn>
       {github.error && (
         <ErrorMessage>
           <p>No Result</p>

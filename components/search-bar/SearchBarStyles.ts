@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media } from '../../styles/GloabalStyles';
 
-export const SearchWrapper = styled.label`
+export const SearchWrapper = styled.div`
   cursor: pointer;
   position: relative;
   width: 100%;
