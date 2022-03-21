@@ -33,7 +33,9 @@ const SearchBar = () => {
         }
       />
 
-      <SearchBtn onClick={searchHandler}>Search</SearchBtn>
+      <SearchBtn onClick={searchHandler} id="search">
+        Search
+      </SearchBtn>
       {github.error && (
         <ErrorMessage>
           <p>No Result</p>
